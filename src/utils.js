@@ -1,6 +1,6 @@
 // import { Logger, dev } from './store.js'
 
-const dev = true
+const dev = !isProduction
 export function log (...args) {
     if (dev) {
         const sampleSize = 100

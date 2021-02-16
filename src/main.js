@@ -10,6 +10,6 @@ const app = new App({
 
 log(isProduction ? 'in Production' : 'In Development')
 
-document.title = `${dev ? 'Dev - ' : ''}${document.title}`
+document.title = `${isProduction ? '' : 'Dev - '}${document.title}`
 
 export default app;
