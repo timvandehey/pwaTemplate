@@ -8,7 +8,7 @@ const app = new App({
 	}
 })
 
-log(dev ? 'in Development' : 'in Production')
+log(isProduction ? 'in Production' : 'In Development')
 
 document.title = `${dev ? 'Dev - ' : ''}${document.title}`
 
