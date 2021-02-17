@@ -1,6 +1,5 @@
-// import { Logger, dev } from './store.js'
+import { Logger, dev } from './store'
 
-const dev = !isProduction
 export function log (...args) {
     if (dev) {
         const sampleSize = 100
@@ -20,7 +19,7 @@ export function log (...args) {
         console.groupEnd()
         console.groupEnd()
     }
-    // Logger.apply(null, args)
+    Logger.apply(null, args)
 }
 
 export function getStoreValue (storeVar) {

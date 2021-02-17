@@ -2,14 +2,9 @@
   "name": "svelte-pwa-template",
   "version": "1.0.0",
   "scripts": {
-    "prebuild": "node buildComponents.js > ./src/components.js ; echo components.js built",
     "build": "rollup -c",
-    "predev": "node buildComponents.js > ./src/components.js ; echo components.js built",
-    "dev": "rollup -c -w",
-    "firestart": "firebase serve --only functions,hosting",
-    "start": "sirv docs",
-    "tjvtest:deploy": "firebase hosting:channel:deploy tjvtest1",
-    "tjvtest": "run-s build tjvtest:deploy"
+    "dev": "TITLE=myTitle rollup -c -w",
+    "start": "sirv docs"
   },
   "devDependencies": {
     "@iconify/svelte": "^1.0.3",

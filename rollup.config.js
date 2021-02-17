@@ -7,6 +7,8 @@ import { terser } from 'rollup-plugin-terser';
 import replace from "@rollup/plugin-replace";
 
 const production = !process.env.ROLLUP_WATCH;
+const title = process.env.TITLE || 'pwaTemplate2'
+console.log({ title })
 
 const aliases = alias({
 	resolve: ['.svelte', '.js'], //optional, by default this will just look for .js files or folders
@@ -26,6 +28,7 @@ export default {
 	plugins: [
 		replace({
 			isProduction: production,
+			pwaTemplate: title
 		}),
 		svelte({
 			// enable run-time checks when not in production
@@ -35,6 +38,7 @@ export default {
 			css: css => {
 				css.write('docs/build/bundle.css');
 			}
+			// , include: ['*.svelte', '*.js', '*.json']
 		}),
 		aliases,
 

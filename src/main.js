@@ -1,4 +1,5 @@
-import { log } from "./utils.js"
+import { prod } from './store'
+import { log } from "./utils"
 import App from "./App.svelte"
 
 
@@ -8,8 +9,6 @@ const app = new App({
 	}
 })
 
-log(isProduction ? 'in Production' : 'In Development')
-
-document.title = `${isProduction ? '' : 'Dev - '}${document.title}`
-
+log(prod ? 'in Production' : 'In Development')
+document.title = `${prod ? '' : 'Dev - '}${document.title}`
 export default app;

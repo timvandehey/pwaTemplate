@@ -13,7 +13,7 @@ window.addEventListener('beforeinstallprompt', saveBeforeInstallPromptEvent);
  *
  * @param {Event} evt
  */
-function saveBeforeInstallPromptEvent(evt) {
+function saveBeforeInstallPromptEvent (evt) {
   // Add code to save event & show the install button.
   deferredInstallPrompt = evt;
   installButton.removeAttribute('hidden');
@@ -25,21 +25,21 @@ function saveBeforeInstallPromptEvent(evt) {
  *
  * @param {Event} evt
  */
-function installPWA(evt) {
+function installPWA (evt) {
   // Add code show install prompt & hide the install button.
   deferredInstallPrompt.prompt();
   // Hide the install button, it can't be called twice.
   evt.srcElement.setAttribute('hidden', true);
   // Log user response to prompt.
   deferredInstallPrompt.userChoice
-      .then((choice) => {
-        if (choice.outcome === 'accepted') {
-          console.log('User accepted the A2HS prompt', choice);
-        } else {
-          console.log('User dismissed the A2HS prompt', choice);
-        }
-        deferredInstallPrompt = null;
-      });
+    .then((choice) => {
+      if (choice.outcome === 'accepted') {
+        console.log('User accepted the A2HS prompt', choice);
+      } else {
+        console.log('User dismissed the A2HS prompt', choice);
+      }
+      deferredInstallPrompt = null;
+    });
 }
 
 // Add event listener for appinstalled event
@@ -51,7 +51,7 @@ window.addEventListener('appinstalled', logAppInstalled);
  *
  * @param {Event} evt
  */
-function logAppInstalled(evt) {
+function logAppInstalled (evt) {
   // Add code to log the event
   console.log('Svelte App was installed.', evt);
 }
