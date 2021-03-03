@@ -2,6 +2,7 @@
     import { onMount } from "svelte";
     import { user, noAuth } from "./store";
     import { server } from "./server";
+    import { CLIENT_ID, API_KEY } from "./secrets";
 
     onMount(async () => {
         const gUser = await getUser().catch(() => (window.location = "/"));
@@ -15,10 +16,6 @@
         user.set({ ...response.value, jwt: gUser.idToken });
         // updateActivePanel(homePanelId);
     });
-
-    const CLIENT_ID =
-        "85671938027-9tjqlgm07qejltr1tpp4o016e12t9nn8.apps.googleusercontent.com";
-    const API_KEY = "AIzaSyDDEgXF-oa4R7HyC6ZqBDg5ahPJnDkWyOk";
 
     const DISCOVERY_DOCS = [
         "https://www.googleapis.com/discovery/v1/apis/people/v1/rest",
