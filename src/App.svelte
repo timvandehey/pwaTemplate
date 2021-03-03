@@ -1,7 +1,13 @@
 <script>
+	import Google from "./Google.svelte";
+	import { user } from "./store";
 </script>
 
 <h1>Svelte PWA Template</h1>
+<Google />
+{#if !$user.auth}
+	<h1>Checking Authentication...</h1>
+{/if}
 
 <style>
 	:global(:root) {

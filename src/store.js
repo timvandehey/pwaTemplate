@@ -2,6 +2,9 @@ import { writable } from "svelte/store";
 export const dev = !isProduction
 export const prod = isProduction
 export const logs = writable([])
+export const noAuth = { auth: false }
+export const user = writable(noAuth)
+
 
 const pad = (n, num = 2) => String(n).padStart(num, '0')
 
