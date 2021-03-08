@@ -1,9 +1,11 @@
 <script>
 	import Google from "./Google.svelte";
 	import { user } from "./store";
+	import Icon from "./Icon.svelte";
 </script>
 
-<h1>Svelte PWA Template</h1>
+<h1>Svelte PWA Template<Icon>circle</Icon><Icon /></h1>
+<span style="color:red;"><Icon>open_in_new</Icon></span>
 <Google />
 {#if !$user.auth}
 	<h1>Checking Authentication...</h1>
