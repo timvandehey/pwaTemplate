@@ -1,20 +1,24 @@
 <script>
-    import { onMount } from "svelte";
+    import { onMount, createEventDispatcher } from "svelte";
     import { user, noAuth } from "./store";
     import { server } from "./server";
     import { CLIENT_ID, API_KEY } from "./secrets";
+    import Apitest from "./Apitest.svelte";
+    const dispatch = createEventDispatcher();
 
     onMount(async () => {
         const gUser = await getUser().catch(() => (window.location = "/"));
-        const response = await server({
-            fn: "login",
-            params: { idToken: gUser.idToken },
-        });
-        if (response.error) {
-            return;
-        }
-        user.set({ ...response.value, jwt: gUser.idToken });
+        // user.set({ ...$user, jwt: gUser.idToken });
+        // const response = await server({
+        //     fn: "login",
+        //     params: { idToken: gUser.idToken },
+        // });
+        // if (response.error) {
+        //     return;
+        // }
+        // user.set(response.value);
         // updateActivePanel(homePanelId);
+        dispatch("gotUser", gUser);
     });
 
     const DISCOVERY_DOCS = [

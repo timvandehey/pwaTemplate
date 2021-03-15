@@ -1,15 +1,30 @@
 <script>
 	import Google from "./Google.svelte";
 	import { user } from "./store";
+	import { log } from "./utils";
 	import Icon from "./Icon.svelte";
+	import Apitest from "./Apitest.svelte";
+	function gotUser(event) {
+		const { detail: gUser } = event;
+		gUser.auth = true;
+		gUser.jwt = gUser.idToken;
+		gUser.timezone = {
+			simple: new Date().toTimeString().slice(9),
+			city: Intl.DateTimeFormat().resolvedOptions().timeZone,
+			offset: new Date().getTimezoneOffset() / -60,
+		};
+		user.set(gUser);
+	}
 </script>
 
 <h1>Svelte PWA Template<Icon>circle</Icon><Icon /></h1>
 <span style="color:red;"><Icon>open_in_new</Icon></span>
-<Google />
 {#if !$user.auth}
 	<h1>Checking Authentication...</h1>
 {/if}
+<Google on:gotUser={gotUser} />
+<!-- <button on:click={signout}>Signout</button> -->
+<Apitest />
 
 <style>
 	:global(:root) {

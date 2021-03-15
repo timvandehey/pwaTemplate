@@ -23,7 +23,7 @@
 </head>
 
 <body>
-
+  <!-- <h1>Checking Authentication (Google)</h1> -->
   <noscript>
     <div>
       Oops! Javascript required here! Allow it and try again!
@@ -43,9 +43,15 @@
       });
     }
   </script>
-  <script src="scripts/install.js"></script>
 
-  <script defer src='build/bundle.js'></script>
+  <script src='build/bundle.js'></script>
+  <!-- <script>
+    function onLoad() {
+      window.gapi.load("client:auth2", startApp)
+    }
+  </script>
+  <script src="https://apis.google.com/js/platform.js" onload=onLoad() /> -->
+  <script src="scripts/install.js"></script>
 
 </body>
 
