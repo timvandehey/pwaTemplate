@@ -22,9 +22,9 @@
 {#if !$user.auth}
 	<h1>Checking Authentication...</h1>
 {/if}
-<Google on:gotUser={gotUser} />
 <!-- <button on:click={signout}>Signout</button> -->
 <Apitest />
+<Google on:gotUser={gotUser} />
 
 <style>
 	:global(:root) {

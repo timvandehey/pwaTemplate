@@ -97,3 +97,4 @@
     <pre><Icon i="log" />
 {data.extra.logs}</pre>
 {/if}
+<button on:click={getData}>Go</button>
