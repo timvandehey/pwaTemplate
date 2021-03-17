@@ -9,8 +9,10 @@
     let request = {};
     $: tests = [
         ["testData", "read"],
+        ["testData", "getFields"],
         ["testDataXXX", "read"],
         ["testData", "read", [1022]],
+        ["testData", "delete", [1050]],
         [
             "testData",
             "create",
@@ -24,11 +26,29 @@
                     text: "multi\nline",
                     datetime: new Date(),
                     date: new Date("2019-12-28"),
-                    time: new Date(0, 0, 0, 10, 0, 0),
+                    time: "10:15PM",
                 },
             ],
         ],
-        [, "a"],
+        [
+            "testData",
+            "update",
+            [
+                {
+                    key: 1022,
+                    string: "2||4||pat",
+                    number: 123,
+                    boolean: true,
+                    array: [2, 5, "tim"],
+                    object: {},
+                    text: "multi\nline",
+                    datetime: new Date(),
+                    date: new Date("2019-12-28"),
+                    time: "10:15PM",
+                },
+            ],
+        ],
+        ["", "a"],
         ["", "login"],
         [, "initializeMetaData"],
         ["", "invalidFunctionName"],

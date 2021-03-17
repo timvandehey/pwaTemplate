@@ -2,12 +2,12 @@
 import { user } from './store'
 import { log } from './utils'
 import { get } from 'svelte/store'
+import { API_URL } from './secrets'
 
 const currentUser = () => get(user)
 
 export async function server (dbName = '', fnName = 'echo', fnArgsArray = []) {
-    const url =
-        `https://script.google.com/macros/s/AKfycbya4Lt5XG7upra-dUMX5BD50YKbCjhuWx_NvIT4nI2eeZh58H6G/exec`
+    const url = API_URL
     const request = {
         user: currentUser()
         , dbName
