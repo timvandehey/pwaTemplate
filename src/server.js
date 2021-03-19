@@ -19,10 +19,5 @@ export async function server (dbName = '', fnName = 'echo', fnArgsArray = []) {
         body: JSON.stringify(request)
     })
         .then(res => res.json())
-    log(1, response)
-    if (response.hadError) {
-        // if (response.error.type == 'userPwdError') user.set({ ...noAuth, ...response.error })
-        log(response.error)
-    }
     return response
 }

@@ -110,11 +110,9 @@
     <pre>getting data ...</pre>
 {/if}
 {#if open}
-    <pre><Icon
-            i="input" /> {JSON.stringify(JSON.parse(data.extra.request.postData.contents), null, 2)}</pre>
+    <pre>{JSON.stringify(JSON.parse(data.extra.request.postData.contents), null, 2)}</pre>
 
-    <pre><Icon i="output" /> {JSON.stringify(data, null, 2)}</pre>
-    <pre><Icon i="log" />
-{data.extra.logs}</pre>
+    <pre> {JSON.stringify(data, null, 2)}</pre>
+    <pre>{data.extra.logs}</pre>
 {/if}
 <button on:click={getData}>Go</button>
